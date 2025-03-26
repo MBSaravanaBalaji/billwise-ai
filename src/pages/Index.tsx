@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -30,21 +29,23 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-primary/5 via-secondary/5 to-background animate-gradient-shift bg-[length:400%_400%]"></div>
+      
+      <div className="fixed -z-5 w-full h-full overflow-hidden">
+        <div className="absolute top-[10%] left-[5%] w-[40vw] h-[40vw] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob-move" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-[20%] right-[10%] w-[35vw] h-[35vw] bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob-move" style={{ animationDelay: '5s' }}></div>
+        <div className="absolute bottom-[10%] left-[35%] w-[45vw] h-[45vw] bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob-move" style={{ animationDelay: '10s' }}></div>
+        
+        <div className="absolute top-[5%] right-[15%] w-[25vw] h-[25vw] rounded-full bg-gradient-to-br from-primary/40 via-secondary/30 to-accent/40 animate-blob-spin opacity-30 mix-blend-multiply filter blur-xl"></div>
+        
+        <div className="absolute bottom-[15%] right-[10%] w-[20vw] h-[20vw] rounded-full bg-primary/30 animate-pulse-opacity mix-blend-multiply filter blur-xl"></div>
+      </div>
+      
       <Header />
       
-      <main className="flex-1">
-        {/* Hero Section */}
+      <main className="flex-1 relative z-10">
         <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/10 to-white opacity-70"></div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -top-10 -left-10 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl"></div>
-            <div className="absolute top-1/4 -right-10 w-72 h-72 bg-secondary/10 rounded-full filter blur-3xl"></div>
-            <div className="absolute -bottom-10 left-1/3 w-80 h-80 bg-accent/10 rounded-full filter blur-3xl"></div>
-          </div>
-          
           <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div 
@@ -75,9 +76,6 @@ const Index = () => {
                 className="hidden lg:block relative animate-blur-in"
                 ref={el => featureRefs.current[1] = el}
               >
-                <div className="absolute -left-10 -top-10 w-2/3 h-2/3 bg-primary/5 rounded-full filter blur-3xl animate-float"></div>
-                <div className="absolute -right-10 -bottom-10 w-2/3 h-2/3 bg-secondary/5 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-                
                 <GlassCard 
                   className="relative z-10" 
                   animation="scale-in" 
@@ -97,9 +95,10 @@ const Index = () => {
           </div>
         </section>
         
-        {/* How It Works Section */}
-        <section className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-          <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-gray-50/80 animate-gradient-shift bg-[length:200%_200%]"></div>
+          
+          <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div 
               className="text-center mb-16 animate-on-scroll"
               ref={el => featureRefs.current[2] = el}
@@ -166,9 +165,13 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Features Section */}
-        <section className="py-20 bg-white overflow-hidden">
-          <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-white">
+            <div className="absolute -top-[10%] -right-[5%] w-[70%] h-[70%] bg-gradient-to-bl from-primary/10 via-secondary/5 to-transparent rounded-full animate-blob-move" style={{ animationDelay: '7s' }}></div>
+            <div className="absolute -bottom-[5%] -left-[5%] w-[50%] h-[50%] bg-gradient-to-tr from-accent/10 via-primary/5 to-transparent rounded-full animate-blob-move" style={{ animationDelay: '14s' }}></div>
+          </div>
+          
+          <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div 
               className="text-center mb-16 animate-on-scroll"
               ref={el => featureRefs.current[6] = el}
@@ -222,9 +225,14 @@ const Index = () => {
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 overflow-hidden">
-          <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 animate-gradient-shift bg-[length:300%_300%]"></div>
+          
+          <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-[20vw] h-[20vw] rounded-full bg-primary/20 mix-blend-multiply filter blur-3xl animate-pulse-opacity"></div>
+          <div className="absolute top-1/3 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-[15vw] h-[15vw] rounded-full bg-secondary/20 mix-blend-multiply filter blur-3xl animate-pulse-opacity" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/3 transform translate-x-1/2 translate-y-1/2 w-[25vw] h-[25vw] rounded-full bg-accent/20 mix-blend-multiply filter blur-3xl animate-pulse-opacity" style={{ animationDelay: '4s' }}></div>
+          
+          <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div 
               className="text-center max-w-3xl mx-auto animate-on-scroll"
               ref={el => featureRefs.current[11] = el}

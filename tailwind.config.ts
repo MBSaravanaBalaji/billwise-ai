@@ -115,6 +115,26 @@ export default {
 					'0%': { boxShadow: '0 0 0 0 rgba(var(--primary), 0.4)' },
 					'70%': { boxShadow: '0 0 0 15px rgba(var(--primary), 0)' },
 					'100%': { boxShadow: '0 0 0 0 rgba(var(--primary), 0)' }
+				},
+				// New animations for backgrounds
+				'blob-move': {
+					'0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+					'25%': { transform: 'translate(30px, -50px) scale(1.1)' },
+					'50%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+					'75%': { transform: 'translate(20px, 50px) scale(1.05)' }
+				},
+				'blob-spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'gradient-shift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'pulse-opacity': {
+					'0%, 100%': { opacity: '0.3' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
@@ -128,7 +148,12 @@ export default {
 				'pulse-slow': 'pulse-slow 3s infinite ease-in-out',
 				'wiggle': 'wiggle 0.3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 1.5s ease-in-out infinite'
+				'glow': 'glow 1.5s ease-in-out infinite',
+				// New animations for backgrounds
+				'blob-move': 'blob-move 20s infinite ease-in-out',
+				'blob-spin': 'blob-spin 40s infinite linear',
+				'gradient-shift': 'gradient-shift 15s ease infinite',
+				'pulse-opacity': 'pulse-opacity 8s infinite ease-in-out'
 			}
 		}
 	},

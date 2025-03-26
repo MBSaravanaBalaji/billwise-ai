@@ -22,15 +22,15 @@ const Header = () => {
   return (
     <header 
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ease-in-out',
-        scrolled ? 'glass py-3' : 'bg-transparent py-4'
+        'fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-500 ease-in-out',
+        scrolled ? 'glass py-3 shadow-lg' : 'bg-transparent py-4'
       )}
     >
       <div className="container max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-medium text-foreground">
-            BillWise
-            <span className="text-primary font-semibold">AI</span>
+          <Link to="/" className="text-2xl font-bold text-foreground group">
+            <span className="inline-block transition-transform duration-300 group-hover:scale-110">BillWise</span>
+            <span className="text-gradient font-extrabold ml-1 inline-block transition-transform duration-300 group-hover:scale-110">AI</span>
           </Link>
           
           <nav className="hidden md:flex space-x-8">
@@ -41,7 +41,7 @@ const Header = () => {
           
           <div className="md:hidden">
             {/* Mobile menu button would go here */}
-            <button className="p-2">
+            <button className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-300">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="24" 
@@ -52,6 +52,7 @@ const Header = () => {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="transition-transform duration-300 hover:scale-110"
               >
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -72,13 +73,15 @@ const NavLink = ({ to, current, children }: { to: string; current: string; child
     <Link 
       to={to} 
       className={cn(
-        "relative text-foreground transition-colors duration-200",
+        "relative text-foreground transition-all duration-300",
         isActive ? "font-medium" : "hover:text-primary",
-        "after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300",
+        "after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-transform after:duration-300",
         isActive && "after:origin-bottom-left after:scale-x-100"
       )}
     >
-      {children}
+      <span className="hover:scale-105 inline-block transition-transform duration-300">
+        {children}
+      </span>
     </Link>
   );
 };

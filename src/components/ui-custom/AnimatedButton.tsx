@@ -6,7 +6,7 @@ import { Button, ButtonProps } from '@/components/ui/button';
 interface AnimatedButtonProps extends ButtonProps {
   children: React.ReactNode;
   className?: string;
-  animation?: 'pulse' | 'scale' | 'none';
+  animation?: 'pulse' | 'scale' | 'glow' | 'shake' | 'none';
 }
 
 const AnimatedButton = ({
@@ -23,6 +23,10 @@ const AnimatedButton = ({
         return 'hover:animate-pulse-slow';
       case 'scale':
         return 'transition-transform duration-300 hover:scale-105';
+      case 'glow':
+        return 'transition-all duration-300 hover:animate-pulse-glow';
+      case 'shake':
+        return 'hover:animate-[wiggle_0.3s_ease-in-out_infinite]';
       default:
         return '';
     }
@@ -44,7 +48,7 @@ const AnimatedButton = ({
       ) : (
         <>
           <span className="relative z-10">{children}</span>
-          <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary/80 to-primary opacity-0 transition-opacity duration-300 hover:opacity-100" />
+          <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary/80 via-secondary/60 to-accent/80 opacity-0 transition-opacity duration-300 hover:opacity-100" />
         </>
       )}
     </Button>

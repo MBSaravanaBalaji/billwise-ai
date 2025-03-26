@@ -1,12 +1,10 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { Button, ButtonProps } from '@/components/ui/button';
 
-interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface AnimatedButtonProps extends ButtonProps {
   children: React.ReactNode;
-  variant?: 'default' | 'outline' | 'ghost';
-  size?: 'default' | 'sm' | 'lg';
   className?: string;
   animation?: 'pulse' | 'scale' | 'none';
 }
@@ -41,8 +39,14 @@ const AnimatedButton = ({
       )}
       {...props}
     >
-      <span className="relative z-10">{children}</span>
-      <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary/80 to-primary opacity-0 transition-opacity duration-300 hover:opacity-100" />
+      {props.asChild ? (
+        children
+      ) : (
+        <>
+          <span className="relative z-10">{children}</span>
+          <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary/80 to-primary opacity-0 transition-opacity duration-300 hover:opacity-100" />
+        </>
+      )}
     </Button>
   );
 };
